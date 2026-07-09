@@ -1,0 +1,16 @@
+TRUNCATE TABLE Purchase_Item,
+               Order_Item,
+               Supplier_Raw_Material,
+               Dish_Recipe,
+               Daily_Dish_Preparation,
+               Bill,
+               Purchase,
+               Orders,
+               Dish,
+               Raw_Material,
+               Supplier,
+               Employee,
+               Customer,
+               Restaurant_Table,
+               Category
+RESTART IDENTITY CASCADE;
