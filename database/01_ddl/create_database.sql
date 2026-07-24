@@ -10,5 +10,5 @@
 -- DATABASE CREATION
 -- ============================================================================
 
-CREATE DATABASE restaurant_management_system
+CREATE DATABASE IF NOT EXISTS restaurant_management_system
     ENCODING 'UTF8';
