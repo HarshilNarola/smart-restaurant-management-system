@@ -226,11 +226,19 @@ $$
 
 BEGIN
 
+    -- Mark the order as completed
     UPDATE Orders
-
     SET status = 'Completed'
-
     WHERE order_id = p_order_id;
+
+    -- Free the associated restaurant table
+    UPDATE Restaurant_Table
+    SET status = 'Available'
+    WHERE table_number = (
+        SELECT table_number
+        FROM Orders
+        WHERE order_id = p_order_id
+    );
 
 END;
 
