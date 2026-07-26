@@ -1,18 +1,18 @@
 # 🍽️ Restaurant Management System
 
-A comprehensive **Restaurant Management System** designed to streamline restaurant operations such as order management, billing, inventory tracking, supplier management, and daily kitchen preparation.
+A PostgreSQL-based **Restaurant Management System Database** designed to manage restaurant operations such as customer management, employee management, table allocation, menu management, order processing, billing, inventory management, supplier management, and daily kitchen preparation.
 
-> **Project Status:** 🚧 Database Module Completed | Backend & Frontend Under Development
+This repository contains the **complete database implementation** of the project developed using PostgreSQL.
 
 ---
 
-# 📖 Overview
+# 📖 Project Overview
 
-This project is being developed as a **Full Stack Restaurant Management System**.
+The Restaurant Management System is designed following proper database design principles to ensure data integrity, consistency, and efficient query performance.
 
-The current repository contains the complete **Database Management System (DBMS)** implementation built using **PostgreSQL**.
+The project demonstrates the implementation of a relational database from requirement analysis to testing using PostgreSQL.
 
-The database has been designed from scratch following proper database design principles including:
+The database includes:
 
 - Requirement Analysis
 - Entity Relationship (ER) Diagram
@@ -20,45 +20,41 @@ The database has been designed from scratch following proper database design pri
 - Normalization (up to BCNF)
 - Physical Database Design
 - Database Implementation
-- Testing & Validation
-
-The backend and frontend modules will be added in future updates.
+- Seed Data
+- Functional Testing
+- Validation Testing
 
 ---
 
-# ✨ Planned Features
+# ✨ Features
 
-- Employee Authentication
-- Restaurant Dashboard
+- Customer Management
+- Employee Management
+- Restaurant Table Management
+- Menu & Category Management
 - Daily Dish Preparation
 - Order Management
-- Billing System
-- Inventory Management
+- Billing Management
+- Raw Material Inventory
 - Supplier Management
 - Purchase Management
-- Reports & Analytics
+- Recipe Management
+- Dashboard & Reporting Views
 
 ---
 
 # 🛠️ Technologies Used
 
-## Database
+### Database
 
 - PostgreSQL
 - SQL
 - pgAdmin 4
 
-## Documentation
+### Documentation
 
-- DBDiagram.io
-- LaTeX
 - Markdown
-
-## Planned
-
-- Node.js
-- Express.js
-- React.js
+- dbdiagram.io
 
 ---
 
@@ -105,67 +101,96 @@ Restaurant_Management/
 
 ---
 
-# 🗄️ Database Features
+# 🗄️ Database Design
+
+The database consists of **15 relational tables** organized into different categories.
+
+### Master Tables
+
+- Customer
+- Employee
+- Restaurant_Table
+- Category
+- Dish
+- Raw_Material
+- Supplier
+
+### Transaction Tables
+
+- Orders
+- Bill
+- Purchase
+
+### Weak Entity
+
+- Daily_Dish_Preparation
+
+### Junction Tables
+
+- Dish_Recipe
+- Supplier_Raw_Material
+- Order_Item
+- Purchase_Item
+
+---
+
+# 📌 Database Features
+
+The project demonstrates the implementation of several advanced PostgreSQL concepts, including:
 
 - Relational Database Design
-- ER Diagram
-- Normalization (BCNF)
-- Primary Keys & Foreign Keys
+- Normalization (up to BCNF)
+- Primary Keys
+- Foreign Keys
+- Domains
 - Constraints
+- Identity Columns
 - Indexes
-- Views
+- Database Views
 - Triggers
-- Functions
+- User Defined Functions
 - Stored Procedures
 - Seed Data
 - Functional Testing
-- Validation Testing
+- Validation Queries
 
 ---
 
-# 📁 Database Modules
+# ⚙️ PostgreSQL Concepts Implemented
 
-## DDL
+### Database Design
 
-- Database Creation
-- Table Creation
-- Constraints
+- Entity Relationship Modeling
+- Relational Schema Design
+- Database Normalization
 
-## Indexes
+### Constraints
 
-- Performance Optimization
+- PRIMARY KEY
+- FOREIGN KEY
+- UNIQUE
+- NOT NULL
+- CHECK
+- DEFAULT
+- ON DELETE
+- ON UPDATE
+- Custom Domains
 
-## Views
+### Performance Optimization
 
-- Dashboard Views
-- Inventory Views
-- Reporting Views
+- B-Tree Indexes
 
-## Triggers
+### Database Programming
 
-- Low Stock Alert
-- Inventory Update
-- Restaurant Table Status Management
-- Daily Dish Preparation Update
-
-## Functions
-
-- Revenue Calculation
-- Table Availability
-- Customer Statistics
-- Inventory Statistics
-
-## Stored Procedures
-
-- Daily Dish Preparation
-- Bill Generation
-- Purchase Recording
-- Order Completion
-- Order Cancellation
+- Views
+- Trigger Functions
+- Triggers
+- User Defined Functions
+- Stored Procedures
 
 ---
 
-# 🚀 Getting Started
+# 🚀 Database Setup
 
 ## Prerequisites
 
@@ -174,14 +199,12 @@ Restaurant_Management/
 
 ---
 
-## Database Setup
-
-Run the SQL files **in the following order**.
+Run the SQL files in the following order.
 
 | Step | SQL File |
 |------|----------|
 | 1 | `01_ddl/create_database.sql` |
-| 2 | Connect to the newly created database |
+| 2 | Connect to the created database |
 | 3 | `01_ddl/create_tables.sql` |
 | 4 | `02_indexes/create_indexes.sql` |
 | 5 | `03_views/create_views.sql` |
@@ -196,41 +219,58 @@ Run the SQL files **in the following order**.
 
 # 🧪 Testing
 
-The project includes:
+The project includes comprehensive testing for all implemented database components.
 
-- Seed Data
-- Functional Testing
-- Constraint Validation
-- Trigger Testing
+### Functional Testing
+
+- Table Verification
+- Relationship Verification
+- View Testing
 - Function Testing
 - Stored Procedure Testing
-- Performance Testing using Indexes
+- Trigger Testing
+
+### Validation Testing
+
+- Primary Key Constraints
+- Foreign Key Constraints
+- CHECK Constraints
+- UNIQUE Constraints
+- Domain Validation
+- Business Rule Validation
+
+### Performance Testing
+
+- Index Verification
+- Query Performance Analysis
+- EXPLAIN ANALYZE
 
 ---
 
-# 📄 Documentation
+# 📚 Documentation
 
-The **Documentation** folder contains the project design documents including:
+The `Documentation` folder contains the database design documents, including:
 
 - Requirement Analysis
-- ER Diagram
+- Entity Relationship Diagram
 - Relational Schema
 - Normalization
-- Project Report (Future)
+- Database Design Notes
 
 ---
 
-# 🚀 Future Enhancements
+# 🎯 Learning Outcomes
 
-- Backend Development using Node.js & Express.js
-- React Frontend
-- JWT Authentication
-- Role-Based Access Control
-- Dashboard Analytics
-- Sales Reports
-- Inventory Alerts
-- PDF Bill Generation
-- Deployment
+This project demonstrates practical implementation of:
+
+- Database Design
+- SQL Programming
+- PostgreSQL
+- Data Integrity
+- Query Optimization
+- Inventory Management
+- Business Rule Enforcement
+- Database Programming using PL/pgSQL
 
 ---
 
@@ -240,22 +280,11 @@ The **Documentation** folder contains the project design documents including:
 
 GitHub: https://github.com/HarshilNarola
 
----
-
-# ⭐ Project Status
-
-Current Version
-
-✅ Database Module Completed
-
-Upcoming Versions
-
-- Backend Development
-- Frontend Development
-- Full Stack Integration
 
 ---
 
-## 📌 Note
+# ⭐ Repository Status
 
-This repository currently contains only the **database implementation** of the Restaurant Management System. The backend and frontend are under active development and will be added in future updates.
+**Current Version:** Database Module (PostgreSQL)
+
+The repository currently contains the complete database implementation of the Restaurant Management System, including schema design, database programming, seed data, and testing.

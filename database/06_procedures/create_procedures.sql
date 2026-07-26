@@ -12,7 +12,8 @@
 -- PROCEDURE: prepare_daily_dishes()
 --
 -- Purpose:
--- Adds today's prepared quantity for a dish.
+-- Adds today's prepared quantity for a dish and automatically
+-- deducts the required raw materials from inventory.
 --
 -- Parameters:
 -- p_dish_id
@@ -35,6 +36,10 @@ $$
 
 BEGIN
 
+    ---------------------------------------------------------------------------
+    -- Step 1 : Insert today's preparation
+    ---------------------------------------------------------------------------
+
     INSERT INTO Daily_Dish_Preparation
     (
         dish_id,
@@ -50,6 +55,25 @@ BEGIN
         p_prepared_quantity,
         p_prepared_quantity
     );
+
+
+
+    ---------------------------------------------------------------------------
+    -- Step 2 : Deduct raw materials according to the recipe
+    ---------------------------------------------------------------------------
+
+    UPDATE Raw_Material rm
+
+    SET current_stock =
+        rm.current_stock -
+        (
+            dr.quantity_required * p_prepared_quantity
+        )
+
+    FROM Dish_Recipe dr
+
+    WHERE dr.material_id = rm.material_id
+      AND dr.dish_id = p_dish_id;
 
 END;
 
@@ -230,15 +254,6 @@ BEGIN
     UPDATE Orders
     SET status = 'Completed'
     WHERE order_id = p_order_id;
-
-    -- Free the associated restaurant table
-    UPDATE Restaurant_Table
-    SET status = 'Available'
-    WHERE table_number = (
-        SELECT table_number
-        FROM Orders
-        WHERE order_id = p_order_id
-    );
 
 END;
 
